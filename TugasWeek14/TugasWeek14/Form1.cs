@@ -12,7 +12,7 @@ namespace TugasWeek14
 
         private void buttonKonversi_Click(object sender, EventArgs e)
         {
-            labelOutput.Text = textBoxKalimat.Text;
+            //labelOutput.Text = textBoxKalimat.Text;
             if (textBoxKalimat.Text != "")
             {
                 labelOutput.Visible = true;
@@ -25,8 +25,9 @@ namespace TugasWeek14
             string output = "";
             textBoxKalimat.CharacterCasing = CharacterCasing.Upper;
             char[] kalimat = textBoxKalimat.Text.ToCharArray();
-            char[] huruf1 = textBoxHuruf.Text.ToCharArray();
-            char[] huruf2 = textBoxMenjadi.Text.ToCharArray();
+            //char[] cek = new char[kalimat.Length];
+            //char[] huruf1 = textBoxHuruf.Text.ToCharArray();
+            //char[] huruf2 = textBoxMenjadi.Text.ToCharArray();
             char index = Convert.ToChar(textBoxHuruf.Text);
             char index2 = Convert.ToChar(textBoxMenjadi.Text);
             int jarak = (index2 - index);
@@ -34,7 +35,7 @@ namespace TugasWeek14
             {
                 jarak += 26;
             }
-            for (int i = 0; i < textBoxKalimat.Text.Length; i++)
+            for (int i = 0; i < kalimat.Length; i++)
             {
                 for(int j = 0; j < 26; j++)
                 {
@@ -49,14 +50,15 @@ namespace TugasWeek14
                         output += kalimat[i];
                         kalimat[i] = 'a';
                     }
-                    else if (kalimat[i] == ' ')
+                    else if (kalimat[i] == Convert.ToChar(" "))
                     {
                         output += " ";
-                        kalimat[i] = ' ';
+                        kalimat[i] = Convert.ToChar(" ");
                         kalimat[i] = 'a';
                     }
                 }
             }
+            
             labelOutput.Text = output;
         }
 
